@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Tinker
 {
     internal static class Utilities
     {
-        private static JavaScriptSerializer json;
-        private static JavaScriptSerializer JSON { get { return json ?? (json = new JavaScriptSerializer()); } }
-
+     
         public static Stream ToStream(this string @this)
         {
             var stream = new MemoryStream();
@@ -26,9 +25,11 @@ namespace Tinker
             return new XmlSerializer(typeof(T)).Deserialize(reader) as T;
         }
 
+        /*
         public static T ParseJSON<T>(this string @this) where T : class
         {
             return JSON.Deserialize<T>(@this.Trim());
         }
+        */
     }
 }

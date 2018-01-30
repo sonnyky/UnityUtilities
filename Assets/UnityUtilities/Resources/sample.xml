@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+<SettingPerStore>
+	<Parameters>
+		<id>101010</id>
+		<minHeight>2100</minHeight>
+		<maxHeight>2500</maxHeight>
+	</Parameters>
+</SettingPerStore>
+</Config>
