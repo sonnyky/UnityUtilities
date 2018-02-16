@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Tinker;
+using TinkerExtensions;
 using UnityEngine;
 
 public class ReadConfig : MonoBehaviour {

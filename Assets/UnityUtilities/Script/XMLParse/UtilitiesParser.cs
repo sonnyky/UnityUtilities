@@ -3,9 +3,9 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Tinker
+namespace TinkerExtensions
 {
-    internal static class Utilities
+    public static partial class Utilities
     {
      
         public static Stream ToStream(this string @this)
