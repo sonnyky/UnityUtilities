@@ -1,7 +1,4 @@
 {
   "name": "homography",
-  "export": [
-    "Assets/UnityUtilities/Scripts",
-    "Assets/Plugins"
-  ]
+  "export": "Assets/UnityUtilities/Scripts"
 }
