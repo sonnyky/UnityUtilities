@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using UdpReceiverUniRx;
 using UnityEngine.UI;
+using System;
 
 namespace WordAdventure
 {
