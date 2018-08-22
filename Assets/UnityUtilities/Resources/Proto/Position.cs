@@ -24,12 +24,13 @@ namespace Zaboom {
     static PositionReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5wb3NpdGlvbi5wcm90bxIGemFib29tIicKD3Blb3BsZV9wb3NpdGlvbhIJ",
-            "CgF4GAEgAygDEgkKAXkYAiADKANiBnByb3RvMw=="));
+            "Cg5wb3NpdGlvbi5wcm90bxIGemFib29tIkMKD3Blb3BsZV9wb3NpdGlvbhIJ",
+            "CgF4GAEgAygCEgkKAXkYAiADKAISDAoEcG9zeBgDIAMoAxIMCgRwb3N5GAQg",
+            "AygDYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Zaboom.people_position), global::Zaboom.people_position.Parser, new[]{ "X", "Y" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Zaboom.people_position), global::Zaboom.people_position.Parser, new[]{ "X", "Y", "Posx", "Posy" }, null, null, null)
           }));
     }
     #endregion
@@ -63,6 +64,8 @@ namespace Zaboom {
     public people_position(people_position other) : this() {
       x_ = other.x_.Clone();
       y_ = other.y_.Clone();
+      posx_ = other.posx_.Clone();
+      posy_ = other.posy_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -73,22 +76,42 @@ namespace Zaboom {
 
     /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
-    private static readonly pb::FieldCodec<long> _repeated_x_codec
-        = pb::FieldCodec.ForInt64(10);
-    private readonly pbc::RepeatedField<long> x_ = new pbc::RepeatedField<long>();
+    private static readonly pb::FieldCodec<float> _repeated_x_codec
+        = pb::FieldCodec.ForFloat(10);
+    private readonly pbc::RepeatedField<float> x_ = new pbc::RepeatedField<float>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<long> X {
+    public pbc::RepeatedField<float> X {
       get { return x_; }
     }
 
     /// <summary>Field number for the "y" field.</summary>
     public const int YFieldNumber = 2;
-    private static readonly pb::FieldCodec<long> _repeated_y_codec
-        = pb::FieldCodec.ForInt64(18);
-    private readonly pbc::RepeatedField<long> y_ = new pbc::RepeatedField<long>();
+    private static readonly pb::FieldCodec<float> _repeated_y_codec
+        = pb::FieldCodec.ForFloat(18);
+    private readonly pbc::RepeatedField<float> y_ = new pbc::RepeatedField<float>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<long> Y {
+    public pbc::RepeatedField<float> Y {
       get { return y_; }
+    }
+
+    /// <summary>Field number for the "posx" field.</summary>
+    public const int PosxFieldNumber = 3;
+    private static readonly pb::FieldCodec<long> _repeated_posx_codec
+        = pb::FieldCodec.ForInt64(26);
+    private readonly pbc::RepeatedField<long> posx_ = new pbc::RepeatedField<long>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<long> Posx {
+      get { return posx_; }
+    }
+
+    /// <summary>Field number for the "posy" field.</summary>
+    public const int PosyFieldNumber = 4;
+    private static readonly pb::FieldCodec<long> _repeated_posy_codec
+        = pb::FieldCodec.ForInt64(34);
+    private readonly pbc::RepeatedField<long> posy_ = new pbc::RepeatedField<long>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<long> Posy {
+      get { return posy_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -106,6 +129,8 @@ namespace Zaboom {
       }
       if(!x_.Equals(other.x_)) return false;
       if(!y_.Equals(other.y_)) return false;
+      if(!posx_.Equals(other.posx_)) return false;
+      if(!posy_.Equals(other.posy_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -114,6 +139,8 @@ namespace Zaboom {
       int hash = 1;
       hash ^= x_.GetHashCode();
       hash ^= y_.GetHashCode();
+      hash ^= posx_.GetHashCode();
+      hash ^= posy_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -129,6 +156,8 @@ namespace Zaboom {
     public void WriteTo(pb::CodedOutputStream output) {
       x_.WriteTo(output, _repeated_x_codec);
       y_.WriteTo(output, _repeated_y_codec);
+      posx_.WriteTo(output, _repeated_posx_codec);
+      posy_.WriteTo(output, _repeated_posy_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -139,6 +168,8 @@ namespace Zaboom {
       int size = 0;
       size += x_.CalculateSize(_repeated_x_codec);
       size += y_.CalculateSize(_repeated_y_codec);
+      size += posx_.CalculateSize(_repeated_posx_codec);
+      size += posy_.CalculateSize(_repeated_posy_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -152,6 +183,8 @@ namespace Zaboom {
       }
       x_.Add(other.x_);
       y_.Add(other.y_);
+      posx_.Add(other.posx_);
+      posy_.Add(other.posy_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -164,13 +197,23 @@ namespace Zaboom {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10:
-          case 8: {
+          case 13: {
             x_.AddEntriesFrom(input, _repeated_x_codec);
             break;
           }
           case 18:
-          case 16: {
+          case 21: {
             y_.AddEntriesFrom(input, _repeated_y_codec);
+            break;
+          }
+          case 26:
+          case 24: {
+            posx_.AddEntriesFrom(input, _repeated_posx_codec);
+            break;
+          }
+          case 34:
+          case 32: {
+            posy_.AddEntriesFrom(input, _repeated_posy_codec);
             break;
           }
         }
