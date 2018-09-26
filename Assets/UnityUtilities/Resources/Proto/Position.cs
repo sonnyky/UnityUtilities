@@ -24,13 +24,13 @@ namespace Zaboom {
     static PositionReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5wb3NpdGlvbi5wcm90bxIGemFib29tIkMKD3Blb3BsZV9wb3NpdGlvbhIJ",
-            "CgF4GAEgAygCEgkKAXkYAiADKAISDAoEcG9zeBgDIAMoAxIMCgRwb3N5GAQg",
-            "AygDYgZwcm90bzM="));
+            "Cg5wb3NpdGlvbi5wcm90bxIGemFib29tIj4KD3Blb3BsZV9wb3NpdGlvbhIJ",
+            "CgF4GAEgAygCEgkKAXkYAiADKAISFQoNZGV2aWNlX251bWJlchgDIAMoCWIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Zaboom.people_position), global::Zaboom.people_position.Parser, new[]{ "X", "Y", "Posx", "Posy" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Zaboom.people_position), global::Zaboom.people_position.Parser, new[]{ "X", "Y", "DeviceNumber" }, null, null, null)
           }));
     }
     #endregion
@@ -64,8 +64,7 @@ namespace Zaboom {
     public people_position(people_position other) : this() {
       x_ = other.x_.Clone();
       y_ = other.y_.Clone();
-      posx_ = other.posx_.Clone();
-      posy_ = other.posy_.Clone();
+      deviceNumber_ = other.deviceNumber_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -94,24 +93,14 @@ namespace Zaboom {
       get { return y_; }
     }
 
-    /// <summary>Field number for the "posx" field.</summary>
-    public const int PosxFieldNumber = 3;
-    private static readonly pb::FieldCodec<long> _repeated_posx_codec
-        = pb::FieldCodec.ForInt64(26);
-    private readonly pbc::RepeatedField<long> posx_ = new pbc::RepeatedField<long>();
+    /// <summary>Field number for the "device_number" field.</summary>
+    public const int DeviceNumberFieldNumber = 3;
+    private static readonly pb::FieldCodec<string> _repeated_deviceNumber_codec
+        = pb::FieldCodec.ForString(26);
+    private readonly pbc::RepeatedField<string> deviceNumber_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<long> Posx {
-      get { return posx_; }
-    }
-
-    /// <summary>Field number for the "posy" field.</summary>
-    public const int PosyFieldNumber = 4;
-    private static readonly pb::FieldCodec<long> _repeated_posy_codec
-        = pb::FieldCodec.ForInt64(34);
-    private readonly pbc::RepeatedField<long> posy_ = new pbc::RepeatedField<long>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<long> Posy {
-      get { return posy_; }
+    public pbc::RepeatedField<string> DeviceNumber {
+      get { return deviceNumber_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -129,8 +118,7 @@ namespace Zaboom {
       }
       if(!x_.Equals(other.x_)) return false;
       if(!y_.Equals(other.y_)) return false;
-      if(!posx_.Equals(other.posx_)) return false;
-      if(!posy_.Equals(other.posy_)) return false;
+      if(!deviceNumber_.Equals(other.deviceNumber_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -139,8 +127,7 @@ namespace Zaboom {
       int hash = 1;
       hash ^= x_.GetHashCode();
       hash ^= y_.GetHashCode();
-      hash ^= posx_.GetHashCode();
-      hash ^= posy_.GetHashCode();
+      hash ^= deviceNumber_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -156,8 +143,7 @@ namespace Zaboom {
     public void WriteTo(pb::CodedOutputStream output) {
       x_.WriteTo(output, _repeated_x_codec);
       y_.WriteTo(output, _repeated_y_codec);
-      posx_.WriteTo(output, _repeated_posx_codec);
-      posy_.WriteTo(output, _repeated_posy_codec);
+      deviceNumber_.WriteTo(output, _repeated_deviceNumber_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -168,8 +154,7 @@ namespace Zaboom {
       int size = 0;
       size += x_.CalculateSize(_repeated_x_codec);
       size += y_.CalculateSize(_repeated_y_codec);
-      size += posx_.CalculateSize(_repeated_posx_codec);
-      size += posy_.CalculateSize(_repeated_posy_codec);
+      size += deviceNumber_.CalculateSize(_repeated_deviceNumber_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -183,8 +168,7 @@ namespace Zaboom {
       }
       x_.Add(other.x_);
       y_.Add(other.y_);
-      posx_.Add(other.posx_);
-      posy_.Add(other.posy_);
+      deviceNumber_.Add(other.deviceNumber_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -206,14 +190,8 @@ namespace Zaboom {
             y_.AddEntriesFrom(input, _repeated_y_codec);
             break;
           }
-          case 26:
-          case 24: {
-            posx_.AddEntriesFrom(input, _repeated_posx_codec);
-            break;
-          }
-          case 34:
-          case 32: {
-            posy_.AddEntriesFrom(input, _repeated_posy_codec);
+          case 26: {
+            deviceNumber_.AddEntriesFrom(input, _repeated_deviceNumber_codec);
             break;
           }
         }

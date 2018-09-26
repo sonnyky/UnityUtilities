@@ -5,6 +5,5 @@ package zaboom;
 message people_position{
   repeated float x = 1;
   repeated float y = 2;
-  repeated int64 posx = 3;
-  repeated int64 posy = 4;
+  repeated string device_number = 3;
 }
