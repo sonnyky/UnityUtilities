@@ -6,10 +6,11 @@ using UniRx;
 using UdpReceiverUniRx;
 using UnityOSC;
 using System;
+using Zaboom;
 
 public class UdpReceiverRx : MonoBehaviour
 {
-    private const int listenPort = 5001;
+    private const int listenPort = 7777;
     private static UdpClient myClient;
     private bool isAppQuitting;
     public IObservable<UdpState> _udpSequence;
@@ -38,7 +39,10 @@ public class UdpReceiverRx : MonoBehaviour
                 try
                 {
                     remoteEP = null;
-                    var receivedMsg = System.Text.Encoding.ASCII.GetString(myClient.Receive(ref remoteEP));
+                    people_position pos = people_position.Parser.ParseFrom(myClient.Receive(ref remoteEP));
+                    Debug.Log("pos is :" + pos);
+                    var receivedMsg = "hey its constant";
+                   // var receivedMsg = System.Text.Encoding.ASCII.GetString(myClient.Receive(ref remoteEP));
                     observer.OnNext(new UdpState(remoteEP, receivedMsg));
                     dataAvailable = true;
 

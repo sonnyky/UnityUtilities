@@ -4,6 +4,8 @@ using UnityEngine;
 using UniRx;
 using UdpReceiverUniRx;
 using UnityEngine.UI;
+using System;
+using Zaboom;
 
 namespace WordAdventure
 {
@@ -30,6 +32,7 @@ namespace WordAdventure
                     //print(x.UdpMsg);
                     string[] str2;
                     str2 = x.UdpMsg.Split(new char[] { ',' });
+                    //people_position pos = people_position.Parser.ParseFrom(System.Text.Encoding.UTF8.GetBytes(x.UdpMsg));
                 })
                 .AddTo(this);
         }

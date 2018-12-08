@@ -7,6 +7,7 @@ namespace UdpReceiverUniRx
     using System.Net;
     using System.Net.Sockets;
     using UniRx;
+    using System;
 
     public class UdpState : System.IEquatable<UdpState>
     {
