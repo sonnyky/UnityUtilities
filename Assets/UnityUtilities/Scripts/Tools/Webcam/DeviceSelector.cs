@@ -12,6 +12,11 @@ public class DeviceSelector : MonoBehaviour {
         for (int i = 0; i < devices.Length; i++)
             Debug.Log(devices[i].name);
     }
+
+    public int GetNumberOfDevices()
+    {
+        return devices.Length;
+    }
 	
     public WebCamDevice GetDevice(int id)
     {
