@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class DeviceSelector : MonoBehaviour {
 
-    UnityEvent m_DevicesReadyEvent;
+    public UnityEvent m_DevicesReadyEvent;
 
     private WebCamDevice[] devices;
 
