@@ -41,9 +41,9 @@ public class UdpReceiverRx : MonoBehaviour
                     remoteEP = null;
                     people_position pos = people_position.Parser.ParseFrom(myClient.Receive(ref remoteEP));
                     Debug.Log("pos is :" + pos);
-                    var receivedMsg = "hey its constant";
-                   // var receivedMsg = System.Text.Encoding.ASCII.GetString(myClient.Receive(ref remoteEP));
-                    observer.OnNext(new UdpState(remoteEP, receivedMsg));
+                    //var receivedMsg = "hey its constant";
+                    //var receivedMsg = System.Text.Encoding.ASCII.GetString(myClient.Receive(ref remoteEP));
+                    //observer.OnNext(new UdpState(remoteEP, receivedMsg));
                     dataAvailable = true;
 
                 }
