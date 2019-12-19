@@ -30,9 +30,9 @@ namespace WordAdventure
                 .Subscribe(x =>
                 {
                     //print(x.UdpMsg);
-                    string[] str2;
-                    str2 = x.UdpMsg.Split(new char[] { ',' });
-                    //people_position pos = people_position.Parser.ParseFrom(System.Text.Encoding.UTF8.GetBytes(x.UdpMsg));
+                    //string[] str2;
+                    //str2 = x.UdpMsg.Split(new char[] { ',' });
+                    people_position pos = people_position.Parser.ParseFrom(System.Text.Encoding.UTF8.GetBytes(x.UdpMsg));
                 })
                 .AddTo(this);
         }
