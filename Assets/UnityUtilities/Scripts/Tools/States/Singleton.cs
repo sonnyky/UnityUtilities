@@ -19,4 +19,9 @@ public class Singleton : MonoBehaviour
             Destroy(this);
         }
     }
+
+    public static Singleton GetInstance()
+    {
+        return _instance;
+    }
 }
